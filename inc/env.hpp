@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 13:16:18 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:25:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define ENV_HPP
 
 # include <ncurses.h>
+# include <iostream>
 # include <set>
 # include <cstdlib>
+# include <sys/stat.h>
 
 # include "graphic.hpp"
 # include "key.hpp"

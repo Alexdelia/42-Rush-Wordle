@@ -6,15 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 13:17:07 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:30:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/env.hpp"
 
-env::env():
-	_possible_words_file(POSSIBLE_WORDS_FILE),
-	_allowed_words_file(ALLOWED_WORDS_FILE)
+env::env()
 {
 
 }
@@ -39,6 +37,34 @@ bool	env::init(void)
 
 	if (!this->resize())
 		return (false);
+
+	return (true);
+}
+
+bool	env::set_files(const std::string &possible, const std::string &allowed)
+{
+	{
+		struct stat	buffer;
+		if (stat(possible.c_str(), &buffer) == -1)
+		{
+			std::cerr << s_error() << possible << " does not exist"
+				<< "\033[0m" << std::endl;
+			return (false);
+		}
+		else
+			this->_possible_words_file = possible;
+	}
+	{
+		struct stat	buffer;
+		if (stat(allowed.c_str(), &buffer) == -1)
+		{
+			std::cerr << s_error() << allowed << " does not exist"
+				<< "\033[0m" << std::endl;
+			return (false);
+		}
+		else
+			this->_allowed_words_file = allowed;
+	}
 
 	return (true);
 }

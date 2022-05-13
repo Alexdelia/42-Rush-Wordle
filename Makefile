@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/05/12 20:30:33 by adelille         ###   ########.fr        #
+#    Updated: 2022/05/13 13:37:04 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ CXXFLAGS +=	-g3
 
 LKFLAGS =	-MMD -MP
 
+#NCFLAGS =	-lncurses
+NCFLAGS =	-std=c99
+NCFLAGS +=	$(shell ncursesw5-config --cflags --libs)
+#NCFLAGS +=	-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -Wl,-Bsymbolic-functions -lncursesw -ltinfo
 
 # **************************************************************************** #
 #	MAKEFILE	#
@@ -86,7 +90,7 @@ launch:
 	$(call progress_bar)
 
 $(NAME):	$(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) $(NCFLAGS)
 	
 clean:
 	@$(RM) $(OBJSPATH)
