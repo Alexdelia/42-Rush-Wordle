@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.cpp                                            :+:      :+:    :+:   */
+/*   play.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 18:24:23 by adelille         ###   ########.fr       */
+/*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
+/*   Updated: 2022/05/13 18:30:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
 
-env::env(): key(0), _try(0)
-{}
-
-env::~env()
-{}
-
-bool	env::init(void)
+void	env::_try_word(void)
 {
-	if (!this->_choose_word()
-		|| !this->_fill_guessable_words())
-		return (false);
 
-	setlocale(LC_ALL, "");
-	initscr();
-	raw();
-	noecho();
-	keypad(stdscr, TRUE);
+}
 
-	if (!graphic::init())
-		return (endwin(), false);
+void	env::play(void)
+{
+	while (this->_try < WORD_TRY)
+	{
+		graphic::board(this->_row, this->_col);
+		key = getch();
 
-	if (!this->resize())
-		return (endwin(), false);
-
-	return (true);
+		// get key
+		// if different than exit or resize
+		if (key::is_exit(key))
+			return ;
+			this->_try_word();
+			this->_try++;
+		// else
+		//	do action
+		//	// if resize, clear before redraw
+	}
 }

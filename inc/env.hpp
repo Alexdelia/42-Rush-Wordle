@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 15:08:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 18:04:44 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define WORD_TRY   6
 
 # define STATUS_GRAY	0
-# define STATUS_RED		1
+# define STATUS_BLACK	1
 # define STATUS_YELLOW	2
 # define STATUS_GREEN	3
 
@@ -48,6 +48,7 @@ class env
 
 		bool	init(void);
 		bool	resize(void);
+		void	play(void);
 	
 		bool	set_files(const std::string &possible, const std::string &allowed);
 		void	set_row(const int row);
@@ -71,6 +72,7 @@ class env
 
         char						_words_tried[WORD_TRY][WORD_LEN];
 		int							_letter_status[WORD_TRY][WORD_LEN];
+		int							_alphabet_status[26];
         unsigned int				_try;
 		
 		bool	_choose_word(void);
@@ -80,6 +82,7 @@ class env
 					std::set<std::string> *list,
 					const unsigned int point);
 		
+		void	_try_word(void);		
 
 };
 
