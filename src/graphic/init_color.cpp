@@ -6,12 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:33:38 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/12 22:40:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:20:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ncurses.h>
 
+#include "../../inc/graphic.hpp"
 #include "../../inc/color_pair.hpp"
 
 static int	r(const int val)

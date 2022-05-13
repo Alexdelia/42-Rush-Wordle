@@ -6,11 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 22:18:35 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/12 22:33:33 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:16:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
+#include "../../inc/graphic.hpp"
+#include "../../inc/color_pair.hpp"
 
 bool	env::resize(void)
 {
@@ -21,7 +23,7 @@ bool	env::resize(void)
 	{
 		clear();
 		graphic::frame_resize(this->_row, this->_col);
-		graphic::pmw(*this, "too small");
+		graphic::pmw("too small", this->_row, this->_col);
 		refresh();
 
 		this->key = 0;
