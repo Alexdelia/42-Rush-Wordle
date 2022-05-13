@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 18:04:44 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 20:55:29 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include "utils.hpp"
 
 # define POSSIBLE_WORDS_FILE	"./words/possible_words.txt"
-# define ALLOWED_WORDS_FILE		"./words/allowed_words.txt"
+# define ALLOWED_WORDS_FILE		"./words/allowed_words_profanity.txt"
 
 # define WORD_LEN   5
 # define WORD_TRY   6

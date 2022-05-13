@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 18:06:36 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 19:01:12 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 # include <ncurses.h>
 # include <string>
+
+# define KEYBOARD_ROW_0	"QWERTYUIOP"
+# define KEYBOARD_ROW_1	"ASDFGHJKL"
+# define KEYBOARD_ROW_2	"ZXCVBNM"
 
 class graphic
 {

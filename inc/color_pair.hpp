@@ -6,25 +6,29 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 13:13:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/12 22:32:14 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 20:31:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_PAIR_HPP
 # define COLOR_PAIR_HPP
 
-# define C_LOW_GREEN	232
+# define CP_0			1
+# define CP_BOARD		7
+# define CP_WINDOW		8
+# define CP_RED			6
+
 # define C_WINDOW		233
 # define C_BOARD		234
 
-# define CP_0			1
-# define CP_GREEN		3
-# define CP_MENU		5
-# define CP_PLAY		6
-# define CP_BOARD		7
-# define CP_SCORE		9
-# define CP_EXIT		10
-# define CP_WINDOW		11
-# define CP_RED			12
+# define C_GRAY			2
+# define C_BLACK		3
+# define C_YELLOW		4
+# define C_GREEEN		5
+
+# define CP_GRAY		2
+# define CP_BLACK		3
+# define CP_YELLOW		4
+# define CP_GREEEN		5
 
 #endif
