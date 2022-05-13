@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 22:23:17 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:10:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	env::_try_word(const char word[WORD_LEN])
 {
+	(void)word;
 	// test if word is valid to find
 	// find word in set
 
@@ -26,8 +27,8 @@ void	env::play(void)
 {
 	while (this->_try < WORD_TRY)
 	{
-		graphic::board(this->_row, this->_col,
-			this->_words_tried, this->_try);
+		graphic::frame(this->_row, this->_col);
+		this->_print_words();
 		graphic::keyboard(this->_row, this->_col, this->_alphabet_status);
 
 		key = getch();
@@ -39,8 +40,8 @@ void	env::play(void)
 			resize();
 			clear();
 		}
-		else if (key == KEY_ENTER)
-			this->_try_word(this->_words_tried[this->_try]);
+		/*else if (key == KEY_ENTER)
+			this->_try_word(this->_words_tried[this->_try]);*/
 		//else if (key == KEY_BACKSPACE)
 			// delete letter
 		//else if (key >= 'a' && key <= 'z')

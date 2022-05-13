@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 22:52:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:45:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,21 @@ bool	env::init(void)
 	initscr();
 	raw();
 	noecho();
-	keypad(stdscr, TRUE);
+	//keypad(stdscr, TRUE);
 
 	if (!graphic::init())
 		return (endwin(), false);
 
 	if (!this->resize())
 		return (endwin(), false);
+	
+	strcpy(this->_words_tried[0], "hello");
+	this->_try++;
+	this->_letter_status[0][0] = CP_GREEN;
+	this->_letter_status[0][1] = CP_YELLOW;
+	this->_letter_status[0][2] = CP_BLACK;
+	this->_letter_status[0][3] = CP_BLACK;
+	this->_letter_status[0][4] = CP_GREEN;
 
 	return (true);
 }

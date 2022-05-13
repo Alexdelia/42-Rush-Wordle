@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 22:08:23 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:37:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "graphic.hpp"
 # include "key.hpp"
 # include "utils.hpp"
+# include "color_pair.hpp"
 
 # define POSSIBLE_WORDS_FILE	"./words/possible_words.txt"
 # define ALLOWED_WORDS_FILE		"./words/allowed_words_profanity.txt"
@@ -82,7 +83,8 @@ class env
 					std::set<std::string> *list,
 					const unsigned int point);
 		
-		void	_try_word(const char word[WORD_LEN]);		
+		void	_try_word(const char word[WORD_LEN]);	
+		void	_print_words(void) const;
 
 };
 

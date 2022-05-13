@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 13:13:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 20:31:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:34:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 # define C_GRAY			2
 # define C_BLACK		3
 # define C_YELLOW		4
-# define C_GREEEN		5
+# define C_GREEN		5
 
 # define CP_GRAY		2
 # define CP_BLACK		3
 # define CP_YELLOW		4
-# define CP_GREEEN		5
+# define CP_GREEN		5
 
 #endif

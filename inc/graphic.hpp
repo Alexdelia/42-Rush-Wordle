@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 22:23:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:08:38 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ class graphic
 
 		static void	frame_resize(const int row, const int col);
 		static void	pmw(const std::string &str, const int row, const int col);
-		static void board(const int row, const int col,
-			const char words_tried[WORD_TRY][WORD_LEN], const size_t tried);
+		static void frame(const int row, const int col);
 		static void	keyboard(const int row, const int col,
 			const int alphabet_status[26]);
 
