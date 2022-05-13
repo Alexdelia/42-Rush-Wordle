@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 13:25:40 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 14:24:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <ncurses.h>
 # include <iostream>
+# include <fstream>
+# include <string.h>
+# include <string>
+# include <vector>
 # include <set>
 # include <cstdlib>
 # include <sys/stat.h>
@@ -69,8 +73,9 @@ class env
 		int							_letter_status[WORD_TRY][WORD_LEN];
         unsigned int				_try;
 		
-		void						_choose_word(void);
-		void						_fill_guessable_words(void);
+		bool	_choose_word(void);
+		bool	_fill_guessable_words(void);
+		bool	_is_valid_word(const std::string &word);
 		
 
 };
