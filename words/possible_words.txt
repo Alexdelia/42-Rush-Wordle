@@ -679,7 +679,7 @@ etude
 evade
 event
 every
-evct
+evict
 evoke
 exact
 exalt
@@ -2306,4 +2306,4 @@ young
 youth
 zebra
 zesty
-zonali
+zonal

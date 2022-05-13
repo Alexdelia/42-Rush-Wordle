@@ -679,7 +679,7 @@ await
 awake
 award
 aware
-awrn
+awarn
 awash
 awato
 awave
@@ -12950,4 +12950,4 @@ zuzim
 zygal
 zygon
 zymes
-zymica
+zymic
