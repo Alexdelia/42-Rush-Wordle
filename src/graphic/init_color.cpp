@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:33:38 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:20:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:18:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	r(const int val)
 	return ((val * 1000) / 256);
 }
 
-static void	init_colors(void)
+static void	init_colors_s(void)
 {
 	init_color(C_LOW_GREEN, r(0x34), r(0x8c), r(0x46));
 	init_color(C_WINDOW, r(0x31), r(0x28), r(0x21));
@@ -48,7 +48,7 @@ bool	graphic::init_colors(void)
 
 	start_color();
 
-	init_colors();
+	init_colors_s();
 	init_pairs();
 
 	bkgd(COLOR_PAIR(CP_WINDOW));

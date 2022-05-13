@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:49:21 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:16:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include "graphic.hpp"
 # include "key.hpp"
 # include "utils.hpp"
+
+# define POSSIBLE_WORDS_FILE	"./words/possible_words.txt"
+# define ALLOWED_WORDS_FILE		"./words/allowed_words.txt"
 
 # define WORD_LEN   5
 # define WORD_TRY   6
@@ -39,19 +42,23 @@ class env
 
 		bool	init(void);
 		bool	resize(void);
-		
+	
+		bool	set_files(const std::string &possible, const std::string &allowed);
 		void	set_row(const int row);
 		void	set_col(const int col);
 
-		const int	get_row(void) const;
-		const int	get_col(void) const;
+		int		get_row(void) const;
+		int		get_col(void) const;
 
     private:
         env(const env &src);
         env &operator=(const env &src);
 
+		std::string					_possible_words_file;
+		std::string					_allowed_words_file;
+
 		char						_word_to_guess[WORD_LEN];
-		std::set<char[WORD_LEN]>	_guessable_words;
+		std::set<std::string>		_guessable_words;
 
 		int							_row;
 		int							_col;
@@ -59,6 +66,10 @@ class env
         char						_words_tried[WORD_TRY][WORD_LEN];
 		int							_letter_status[WORD_TRY][WORD_LEN];
         unsigned int				_try;
+		
+		void						_choose_word(void);
+		void						_fill_guessable_words(void);
+		
 
 };
 

@@ -6,15 +6,18 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:31:11 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:50:23 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:16:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/env.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
 	env	e;
+
+	if (ac == 3 && !e.set_files(av[1], av[2]))
+		return (1);
 
 	if (!e.init())
 		return (1);
