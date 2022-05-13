@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 19:01:12 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 22:23:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 # define KEYBOARD_ROW_1	"ASDFGHJKL"
 # define KEYBOARD_ROW_2	"ZXCVBNM"
 
+# ifndef WORD_LEN
+#  define WORD_LEN   5
+#  define WORD_TRY   6
+# endif
+
 class graphic
 {
 	public:
@@ -30,8 +35,10 @@ class graphic
 
 		static void	frame_resize(const int row, const int col);
 		static void	pmw(const std::string &str, const int row, const int col);
-		static void board(const int row, const int col);
-		static void	keyboard(const int status[26], const int row, const int col);
+		static void board(const int row, const int col,
+			const char words_tried[WORD_TRY][WORD_LEN], const size_t tried);
+		static void	keyboard(const int row, const int col,
+			const int alphabet_status[26]);
 
 		static bool	valid_size(const int row, const int col);
 

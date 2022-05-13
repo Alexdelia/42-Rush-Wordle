@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:03:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 20:26:21 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 22:52:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,28 @@ static void	draw_words_frame(const int row, const int col)
 	// reset color
 }
 
-static void	draw_keyboard(const int row, const int col)
+static void	draw_words(const int row, const int col,
+	const char &words[WORD_TRY][WORD_LEN], const size_t tries)
+{
+	size_t	t;
+	size_t	i;
+
+	t = 0;
+	while (t < tries)
+	{
+		move(((row - 3) - WORD_TRY) / 2 + t, (col - WORD_LEN) / 2);
+		i = 0;
+		while (i < WORD_LEN)
+		{
+			// set color (need letter status)
+			addch(words[t][i] - 32);
+			i++;
+		}
+		t++;
+	}
+}
+
+void	graphic::keyboard(const int row, const int col, const int alphabet_status[26])
 {
 	// need to handle color
 	mvaddstr(row - 1, (col - (strlen(KEYBOARD_ROW_2))) / 2, KEYBOARD_ROW_2);
@@ -42,9 +63,9 @@ static void	draw_keyboard(const int row, const int col)
 	mvaddstr(row - 3, (col - (strlen(KEYBOARD_ROW_0))) / 2, KEYBOARD_ROW_0);
 }
 
-void	graphic::board(const int row, const int col)
+void	graphic::board(const int row, const int col,
+	const char &words[WORD_TRY][WORD_LEN], const size_t tries)
 {
 	draw_words_frame(row, col);
-	// draw words in it
-	draw_keyboard(row, col);
+	draw_words(row, col, tried_words, tries);
 }

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 20:55:29 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 22:08:23 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ class env
 					std::set<std::string> *list,
 					const unsigned int point);
 		
-		void	_try_word(void);		
+		void	_try_word(const char word[WORD_LEN]);		
 
 };
 
