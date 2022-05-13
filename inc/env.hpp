@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/12 22:26:11 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:40:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <ncurses.h>
 # include <set>
 # include <cstdlib>
+
+# include "graphic.hpp"
+# include "utils.hpp"
 
 # define WORD_LEN   5
 # define WORD_TRY   6
@@ -33,6 +36,7 @@ class env
 
 		int		key;
 
+		bool	init(void);
 		bool	resize(void);
 		
 		void	set_row(const int row);

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/12 23:01:32 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:02:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 env::env()
 {
-	if (graphic::init())
-		return ;	// different handle
 }
 
 env::~env()
 {}
+
+bool	env::init(void)
+{
+	if (graphic::init())
+		return (false);
+}
 
 void		env::set_row(const int row)
 { this->_row = row; }
