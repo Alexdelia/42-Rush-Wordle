@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   key.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 20:31:11 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:50:23 by adelille         ###   ########.fr       */
+/*   Created: 2022/05/13 12:47:42 by adelille          #+#    #+#             */
+/*   Updated: 2022/05/13 12:48:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/env.hpp"
+#ifndef KEY_HPP
+# define KEY_HPP
 
-int main(void)
+
+class key
 {
-	env	e;
+	public:
+		static bool	is_exit(const int key);
 
-	if (!e.init())
-		return (1);
+    private:
+		key();
+		~key();	
+        key(const key &src);
+        key &operator=(const key &src);
 
-    return (0);
-}
+};
+
+#endif

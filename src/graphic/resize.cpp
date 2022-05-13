@@ -6,13 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 22:18:35 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:16:42 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:49:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
 #include "../../inc/graphic.hpp"
 #include "../../inc/color_pair.hpp"
+#include "../../inc/key.hpp"
 
 bool	env::resize(void)
 {

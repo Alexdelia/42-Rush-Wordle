@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 12:40:30 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/13 12:49:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 
 # include "graphic.hpp"
+# include "key.hpp"
 # include "utils.hpp"
 
 # define WORD_LEN   5
