@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 16:26:07 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 17:05:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class graphic
 		static void frame(const int row, const int col);
 		static void	keyboard(const int row, const int col,
 			const int alphabet_status[26]);
+		static void	keyboard_cpp(const int row, const int col,
+			const int alphabet_status[26]);	// tmp
 
 		static bool	valid_size(const int row, const int col);
 

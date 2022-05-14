@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:58:22 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 16:58:46 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 17:42:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,12 @@ void	env::_try_word_green(const char word[WORD_LEN], bool *answer_status)
 		if (word[i] == this->_word_to_guess[i])
 		{
 			this->_letter_status[this->_try][i] = STATUS_GREEN;
+			this->_alphabet_status[word[i] - 'a'] = STATUS_GREEN;
 			answer_status[i] = true;
 		}
 		else
-		{
-			this->_letter_status[this->_try][i] = STATUS_BLACK;
 			answer_status[i] = false;
-		}
-		this->_alphabet_status[word[i] - 'a']
-			= this->_letter_status[this->_try][i];
+
 		i++;
 	}
 }
@@ -52,9 +49,12 @@ void	env::_try_word_rest(const char word[WORD_LEN], bool answer_status[5])
 					&& word[input_index] == this->_word_to_guess[to_guess_index])
 			{
 				this->_letter_status[this->_try][input_index] = STATUS_YELLOW;
-				this->_alphabet_status[word[input_index] - 'a'] = STATUS_YELLOW;
+				if (this->_alphabet_status[word[input_index] - 'a'] != STATUS_GREEN)
+					this->_alphabet_status[word[input_index] - 'a'] = STATUS_YELLOW;
 				answer_status[to_guess_index] = true;
 			}
+			else if (this->_alphabet_status[word[input_index] - 'a'] == STATUS_GRAY)
+				this->_alphabet_status[word[input_index] - 'a'] = STATUS_BLACK;
 			input_index++;
 		}
 		to_guess_index++;

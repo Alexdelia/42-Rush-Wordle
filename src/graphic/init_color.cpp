@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:33:38 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 15:57:27 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 17:37:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	init_colors_s(void)
 static void	init_pairs(void)
 {
 	init_pair(CP_RED, COLOR_RED, C_WINDOW);
-	init_pair(CP_BOARD, C_WINDOW, C_BOARD);
+	init_pair(CP_BOARD, C_LETTER, C_BOARD);
 	init_pair(CP_WINDOW, COLOR_WHITE, C_WINDOW);
 
 	init_pair(CP_GRAY, C_LETTER, C_GRAY);
