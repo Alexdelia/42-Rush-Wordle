@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 12:17:55 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:43:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	env::_try_word_green(const char word[WORD_LEN],
 	{
 		if (word[i] == this->_word_to_guess[i])
 		{
-			answer_status[i] = true;
 			this->_letter_status[this->_try][i] = STATUS_GREEN;
+			answer_status[i] = true;
 		}
 		else
 			this->_letter_status[this->_try][i] = STATUS_GRAY;
@@ -32,17 +32,14 @@ void	env::_try_word_rest(const char word[WORD_LEN],
 {
 	for (int i = 0; i < WORD_LEN; i++)
 	{
-		// word[i]
 		for (int x = 0; answer_status[i] == false && x < WORD_LEN; x++)
 		{
 			if (this->_letter_status[this->_try][x] != STATUS_GREEN
 					&& this->_letter_status[this->_try][x] != STATUS_YELLOW
-					&& word[i] == this->_words_tried[this->_try][x])
+					&& word[i] == this->_word_to_guess[x])
 			{
-				answer_status[i] = true;
 				this->_letter_status[this->_try][x] = STATUS_YELLOW;
-				mvaddch(2, x, this->_words_tried[this->_try][x]);
-				mvaddch(3, i, word[i]);
+				answer_status[i] = true;
 			}
 		}
 	}
@@ -59,8 +56,12 @@ void	env::_try_word(const char word[WORD_LEN])
 		this->_try++;
     }
 	else
-		mvaddstr(0, 0, "not found");
-		//word non valide
+	{
+		mvaddstr(0, 0, "not found");	// change and clear
+		move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
+			(this->_col - WORD_LEN) / 2);
+		addstr(std::string(WORD_LEN, ' ').c_str());
+	}
 
 }
 
@@ -100,7 +101,6 @@ void	env::play(void)
 		else if ((key == KEY_BACKSPACE || key == 127) && i > 0)
 		{
 			i--;
-			//this->_words_tried[this->_try][i] = '\0';
 			move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
 				(this->_col - WORD_LEN) / 2 + i);
 			addch(' ');
