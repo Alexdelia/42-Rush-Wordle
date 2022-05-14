@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 14:56:45 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 16:50:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,22 @@ void	env::_try_word_rest(const char word[WORD_LEN], bool answer_status[5])
 	}
 }
 
-void	env::_try_word(const char word[WORD_LEN])
+bool	env::_try_word(const char word[WORD_LEN])
 {
 	bool	answer_status[5] = { false };
-	// test if word is valid to find	
+	
 	if (_guessable_words.find(word) != _guessable_words.end())
     {
 		this->_try_word_green(word, answer_status);
 		this->_try_word_rest(word, answer_status);
+		
+		if (strcmp(word, this->_word_to_guess) == 0)
+		{
+			this->_print_win();
+			this->_try = 0;
+			return (true);
+		}
+		
 		this->_try++;
     }
 	else
@@ -80,6 +88,7 @@ void	env::_try_word(const char word[WORD_LEN])
 		strcpy(this->_words_tried[this->_try], std::string(WORD_LEN, ' ').c_str());
 	}
 
+	return (false);
 }
 
 void	env::play(void)
@@ -111,8 +120,12 @@ void	env::play(void)
 		}
 		else if (key == KEY_ENTER || key == 10)
 		{
-			mvaddstr(4, 0, this->_words_tried[this->_try]);
-			this->_try_word(this->_words_tried[this->_try]);
+			this->_words_tried[this->_try][WORD_LEN] = '\0';
+			
+			mvaddstr(4, 0, this->_words_tried[this->_try]);	// debug
+
+			if (this->_try_word(this->_words_tried[this->_try]))
+				break ;
 			i = 0;
 		}
 		else if ((key == KEY_BACKSPACE || key == 127) && i > 0)
@@ -124,9 +137,18 @@ void	env::play(void)
 		}
 		else if (key >= 'a' && key <= 'z' && i < WORD_LEN)
 		{
+			attrset(A_BOLD);
 			this->_words_tried[this->_try][i] = key;
 			addch(key - 32);
 			i++;
+			attrset(A_NORMAL);
 		}
 	}
+
+	this->_print_words();
+	
+	if (this->_try == WORD_TRY)
+		this->_print_lost();
+
+	getch();
 }
