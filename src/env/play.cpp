@@ -6,16 +6,18 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 12:54:32 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 13:19:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
 
-void	env::_try_word_green(const char word[WORD_LEN],
-	bool *answer_status)
+void	env::_try_word_green(const char word[WORD_LEN], bool *answer_status)
 {
-	for (int i = 0; i < WORD_LEN; i++)
+	size_t	i;
+
+	i = 0;
+	while (i < WORD_LEN)
 	{
 		if (word[i] == this->_word_to_guess[i])
 		{
@@ -27,24 +29,32 @@ void	env::_try_word_green(const char word[WORD_LEN],
 			this->_letter_status[this->_try][i] = STATUS_BLACK;
 			answer_status[i] = false;
 		}
+		i++;
 	}
 }
 
-void	env::_try_word_rest(const char word[WORD_LEN],
-	bool answer_status[5])
+void	env::_try_word_rest(const char word[WORD_LEN], bool answer_status[5])
 {
-	for (int i = 0; i < WORD_LEN; i++)
+	size_t	to_guess_index;
+	size_t	input_index;
+
+	to_guess_index = 0;
+	while (to_guess_index < WORD_LEN)
 	{
-		for (int x = 0; answer_status[i] == false && x < WORD_LEN; x++)
+		input_index = 0;
+		while (answer_status[to_guess_index] == false
+				&& input_index < WORD_LEN)
 		{
-			if (this->_letter_status[this->_try][x] != STATUS_GREEN
-					&& this->_letter_status[this->_try][x] != STATUS_YELLOW
-					&& word[x] == this->_word_to_guess[i])
+			if (this->_letter_status[this->_try][input_index] != STATUS_GREEN
+					&& this->_letter_status[this->_try][input_index] != STATUS_YELLOW
+					&& word[input_index] == this->_word_to_guess[to_guess_index])
 			{
-				this->_letter_status[this->_try][x] = STATUS_YELLOW;
-				answer_status[i] = true;
+				this->_letter_status[this->_try][input_index] = STATUS_YELLOW;
+				answer_status[to_guess_index] = true;
 			}
+			input_index++;
 		}
+		to_guess_index++;
 	}
 }
 
