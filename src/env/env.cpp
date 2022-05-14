@@ -6,13 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 20:58:15 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 21:03:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
 
-env::env(): key(0), _word_to_guess(), _row(0), _col(0), _try(0)
+env::env(): key(0), _word_to_guess(), _row(0), _col(0),
+	_words_tried(), _letter_status(), _alphabet_status(), _try(0)
 {
 	for (size_t i = 0; i < 26; i++)
 		this->_alphabet_status[i] = STATUS_GRAY;
