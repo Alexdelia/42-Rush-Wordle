@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:01:21 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 16:49:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:49:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void env::_print_win(void) const
 		win_msg << "\" on first try!";
 
 	mvprintw((this->_row - 1) / 2 + 4,
-			 (this->_col - win_msg.str().size()) / 2,
-			 win_msg.str().c_str());
+			(this->_col - win_msg.str().size()) / 2,
+			win_msg.str().c_str());
 
 	attrset(A_NORMAL);
 }
@@ -60,8 +60,8 @@ void env::_print_lost(void) const
 		+ std::string(this->_word_to_guess));
 
 	mvprintw((this->_row - 1) / 2 + 4,
-			 (this->_col - lost_msg.size()) / 2,
-			 lost_msg.c_str());
+			(this->_col - lost_msg.size()) / 2,
+			lost_msg.c_str());
 
 	attrset(A_NORMAL);
 }

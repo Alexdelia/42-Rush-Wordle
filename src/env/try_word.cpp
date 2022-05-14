@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:58:22 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 17:42:11 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 18:57:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,26 @@ bool	env::_try_word(const char word[WORD_LEN])
     {
 		this->_try_word_green(word, answer_status);
 		this->_try_word_rest(word, answer_status);
-		
+			
+		this->_try++;
+
 		if (strcmp(word, this->_word_to_guess) == 0)
 		{
 			this->_print_win();
+			this->_print_words();
 			this->_try = 0;
 			return (true);
 		}
-		
-		this->_try++;
     }
 	else
 	{
-		mvaddstr(0, 0, "not found");	// change and clear
+		attrset(A_BOLD | A_ITALIC);
+		std::string	not_found_msg("\"" + std::string(word) + "\" isn't in word list");
+		mvprintw((this->_row - 1) / 2 - 7,
+			(this->_col - not_found_msg.size()) / 2,
+			not_found_msg.c_str());
+		attrset(A_NORMAL);
+
 		move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
 			(this->_col - WORD_LEN) / 2);
 		addstr(std::string(WORD_LEN, ' ').c_str());
