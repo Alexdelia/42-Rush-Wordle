@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 12:33:55 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 16:47:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <ncurses.h>
 # include <iostream>
 # include <fstream>
+# include <sstream>
 # include <string.h>
 # include <string>
 # include <vector>
@@ -71,7 +72,7 @@ class env
 		int							_row;
 		int							_col;
 
-        char						_words_tried[WORD_TRY][WORD_LEN];
+        char						_words_tried[WORD_TRY][WORD_LEN + 1];
 		int							_letter_status[WORD_TRY][WORD_LEN];
 		int							_alphabet_status[26];
         unsigned int				_try;
@@ -83,12 +84,15 @@ class env
 					std::set<std::string> *list,
 					const unsigned int point);
 		
-		void	_try_word(const char word[WORD_LEN]);
+		bool	_try_word(const char word[WORD_LEN]);
 		void	_try_word_green(const char word[WORD_LEN],
 					bool *answer_status);
 		void	_try_word_rest(const char word[WORD_LEN],
 					bool answer_status[5]);
+
 		void	_print_words(void) const;
+		void	_print_win(void) const;
+		void	_print_lost(void) const;
 
 };
 

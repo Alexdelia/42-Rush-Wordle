@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:03:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 16:54:43 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/05/14 16:56:11 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,24 @@ void	graphic::frame(const int row, const int col)
 	attrset(COLOR_PAIR(CP_BOARD));
 
 	move(((row - 3) - (WORD_TRY + 2)) / 2,
+		(col - (WORD_LEN + 2)) / 2 - 1);
+	vline(' ', WORD_TRY + 2);
+	
+	move(((row - 3) - (WORD_TRY + 2)) / 2,
 		(col - (WORD_LEN + 2)) / 2);
 	hline(' ', WORD_LEN + 2);
 	vline(' ', WORD_TRY + 2);
+	
 	move(((row - 3) - (WORD_TRY + 2)) / 2 + (WORD_TRY + 2) - 1,
 		(col - (WORD_LEN + 2)) / 2);
 	hline(' ', WORD_LEN + 2);
+	
 	move(((row - 3) - (WORD_TRY + 2)) / 2,
 		(col - (WORD_LEN + 2)) / 2 + (WORD_LEN + 2) - 1);
+	vline(' ', WORD_TRY + 2);
+	
+	move(((row - 3) - (WORD_TRY + 2)) / 2,
+		(col - (WORD_LEN + 2)) / 2 + (WORD_LEN + 2));
 	vline(' ', WORD_TRY + 2);
 
 	attrset(A_NORMAL);
