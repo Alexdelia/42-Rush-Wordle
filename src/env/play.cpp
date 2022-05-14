@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 12:43:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:54:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void	env::_try_word_green(const char word[WORD_LEN],
 			answer_status[i] = true;
 		}
 		else
-			this->_letter_status[this->_try][i] = STATUS_GRAY;
+		{
+			this->_letter_status[this->_try][i] = STATUS_BLACK;
+			answer_status[i] = false;
+		}
 	}
 }
 
@@ -36,7 +39,7 @@ void	env::_try_word_rest(const char word[WORD_LEN],
 		{
 			if (this->_letter_status[this->_try][x] != STATUS_GREEN
 					&& this->_letter_status[this->_try][x] != STATUS_YELLOW
-					&& word[i] == this->_word_to_guess[x])
+					&& word[x] == this->_word_to_guess[i])
 			{
 				this->_letter_status[this->_try][x] = STATUS_YELLOW;
 				answer_status[i] = true;
@@ -61,6 +64,7 @@ void	env::_try_word(const char word[WORD_LEN])
 		move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
 			(this->_col - WORD_LEN) / 2);
 		addstr(std::string(WORD_LEN, ' ').c_str());
+		strcpy(this->_words_tried[this->_try], std::string(WORD_LEN, ' ').c_str());
 	}
 
 }
