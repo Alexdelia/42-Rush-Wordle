@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 00:37:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:07:26 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 # define WORD_LEN   5
 # define WORD_TRY   6
 
-# define STATUS_GRAY	0
-# define STATUS_BLACK	1
-# define STATUS_YELLOW	2
-# define STATUS_GREEN	3
+# define STATUS_GRAY	CP_GRAY
+# define STATUS_BLACK	CP_BLACK
+# define STATUS_YELLOW	CP_YELLOW
+# define STATUS_GREEN	CP_GREEN
 
 class env
 {
@@ -83,7 +83,11 @@ class env
 					std::set<std::string> *list,
 					const unsigned int point);
 		
-		void	_try_word(const char word[WORD_LEN]);	
+		void	_try_word(const char word[WORD_LEN]);
+		void	_try_word_green(const char word[WORD_LEN],
+					bool *answer_status);
+		void	_try_word_rest(const char word[WORD_LEN],
+					bool answer_status[5]);
 		void	_print_words(void) const;
 
 };
