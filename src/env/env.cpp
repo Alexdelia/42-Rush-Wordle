@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 11:33:00 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:45:01 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,5 @@ bool	env::init(void)
 	if (!this->resize())
 		return (endwin(), false);
 	
-	strcpy(this->_words_tried[0], "hello");
-	this->_try++;
-	this->_letter_status[0][0] = CP_GREEN;
-	this->_letter_status[0][1] = CP_YELLOW;
-	this->_letter_status[0][2] = CP_BLACK;
-	this->_letter_status[0][3] = CP_BLACK;
-	this->_letter_status[0][4] = CP_GREEN;
-
 	return (true);
 }
