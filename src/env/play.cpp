@@ -6,7 +6,7 @@
 /*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 13:07:51 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/05/14 13:20:03 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	env::_try_word_green(const char word[WORD_LEN],
 		{
 			answer_status[i] = true;
 			this->_letter_status[this->_try][i] = STATUS_GREEN;
+			this->_alphabet_status[word[i] - 'a'] = STATUS_GREEN;
 		}
 		else
 			this->_letter_status[this->_try][i] = STATUS_GRAY;
