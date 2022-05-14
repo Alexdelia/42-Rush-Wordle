@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   board.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:03:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 00:48:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 16:44:48 by bregneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,41 @@ void	env::_print_words(void) const
 
 void	graphic::keyboard(const int row, const int col, const int alphabet_status[26])
 {
+	char	keyboard_row_0[] = KEYBOARD_ROW_0;
+	char	keyboard_row_1[] = KEYBOARD_ROW_1;
+	char	keyboard_row_2[] = KEYBOARD_ROW_2;
+	size_t	i;
+
+	move(row - 1, (col - (strlen(KEYBOARD_ROW_2))) / 2);
+	i = 0;
+	while (keyboard_row_2[i])
+	{
+		attrset(COLOR_PAIR(alphabet_status[keyboard_row_2[i] - 'a']));
+		addch(keyboard_row_2[i]);
+		i++;
+	}
+	move(row - 2, (col - (strlen(KEYBOARD_ROW_1))) / 2);
+	i = 0;
+	while (keyboard_row_1[i])
+	{
+		attrset(COLOR_PAIR(alphabet_status[keyboard_row_1[i] - 'a']));
+		addch(keyboard_row_1[i]);
+		i++;
+	}
+	move(row - 3, (col - (strlen(KEYBOARD_ROW_0))) / 2);
+	i = 0;
+	while (keyboard_row_0[i])
+	{
+		attrset(COLOR_PAIR(alphabet_status[keyboard_row_0[i] - 'a']));
+		addch(keyboard_row_0[i]);
+		i++;
+	}
+
 	// need to handle color
-	mvaddstr(row - 1, (col - (strlen(KEYBOARD_ROW_2))) / 2, KEYBOARD_ROW_2);
-	mvaddstr(row - 2, (col - (strlen(KEYBOARD_ROW_1))) / 2, KEYBOARD_ROW_1);
-	mvaddstr(row - 3, (col - (strlen(KEYBOARD_ROW_0))) / 2, KEYBOARD_ROW_0);
-	(void)alphabet_status;
+	// mvaddstr(row - 1, (col - (strlen(KEYBOARD_ROW_2))) / 2, KEYBOARD_ROW_2);
+	// mvaddstr(row - 2, (col - (strlen(KEYBOARD_ROW_1))) / 2, KEYBOARD_ROW_1);
+	// mvaddstr(row - 3, (col - (strlen(KEYBOARD_ROW_0))) / 2, KEYBOARD_ROW_0);
+	// (void)alphabet_status;
 }
 
 void	graphic::frame(const int row, const int col)
