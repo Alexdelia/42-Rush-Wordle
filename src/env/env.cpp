@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 12:45:01 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:52:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	env::init(void)
 	noecho();
 	//keypad(stdscr, TRUE);
 
-	if (!graphic::init())
+	if (!graphic::init_colors())
 		return (endwin(), false);
 
 	if (!this->resize())

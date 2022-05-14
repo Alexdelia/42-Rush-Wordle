@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bregneau <bregneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 13:27:17 by bregneau         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:56:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	env::_try_word_rest(const char word[WORD_LEN], bool answer_status[5])
 					&& word[input_index] == this->_word_to_guess[to_guess_index])
 			{
 				this->_letter_status[this->_try][input_index] = STATUS_YELLOW;
-				this->_alphabet_status[word[i] - 'a'] = STATUS_YELLOW;
+				this->_alphabet_status[word[input_index] - 'a'] = STATUS_YELLOW;
 				answer_status[to_guess_index] = true;
 			}
 			input_index++;

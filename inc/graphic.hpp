@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 20:55:30 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 00:08:38 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 14:51:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 class graphic
 {
 	public:
-		static bool	init(void);
 		static bool	init_colors(void);
 
 		static void	frame_resize(const int row, const int col);
