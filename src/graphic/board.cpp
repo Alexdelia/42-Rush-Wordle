@@ -6,33 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:03:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 00:48:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/14 16:04:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/graphic.hpp"
-
-void	env::_print_words(void) const
-{
-	size_t	t;
-	size_t	i;
-
-	t = 0;
-	while (t < this->_try)
-	{
-		move(((this->_row - 3) - WORD_TRY) / 2 + t, (this->_col - WORD_LEN) / 2);
-		i = 0;
-		while (i < WORD_LEN)
-		{
-			attrset(COLOR_PAIR(this->_letter_status[t][i]));
-			addch(this->_words_tried[t][i] - 32);
-			i++;
-		}
-		t++;
-	}
-
-	attrset(A_NORMAL);
-}
 
 void	graphic::keyboard(const int row, const int col, const int alphabet_status[26])
 {
@@ -45,10 +23,6 @@ void	graphic::keyboard(const int row, const int col, const int alphabet_status[2
 
 void	graphic::frame(const int row, const int col)
 {
-	// top left =
-	//	(row - (WORD_LEN + 2)) / 2			// might add + 1 after + 2
-	//	((col - 3) - (WORD_TRY + 2)) / 2	// same
-
 	attrset(COLOR_PAIR(CP_BOARD));
 
 	move(((row - 3) - (WORD_TRY + 2)) / 2,

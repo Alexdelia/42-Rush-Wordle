@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.cpp                                            :+:      :+:    :+:   */
+/*   print_words.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 20:55:19 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 15:58:28 by adelille         ###   ########.fr       */
+/*   Created: 2022/05/14 16:01:21 by adelille          #+#    #+#             */
+/*   Updated: 2022/05/14 16:03:44 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/env.hpp"
 
-env::env(): key(0), _try(0)
-{}
-
-env::~env()
-{}
-
-bool	env::init(void)
+void	env::_print_words(void) const
 {
-	if (!this->_choose_word()
-		|| !this->_fill_guessable_words())
-		return (false);
+	size_t	t;
+	size_t	i;
 
-	setlocale(LC_ALL, "");
-	initscr();
-	raw();
-	noecho();
-	//keypad(stdscr, TRUE);
-	curs_set(0);
+	t = 0;
+	while (t < this->_try)
+	{
+		move(((this->_row - 3) - WORD_TRY) / 2 + t, (this->_col - WORD_LEN) / 2);
+		i = 0;
+		while (i < WORD_LEN)
+		{
+			attrset(COLOR_PAIR(this->_letter_status[t][i]));
+			addch(this->_words_tried[t][i] - 32);
+			i++;
+		}
+		t++;
+	}
 
-	if (!graphic::init_colors())
-		return (endwin(), false);
-
-	if (!this->resize())
-		return (endwin(), false);
-	
-	return (true);
+	attrset(A_NORMAL);
 }
