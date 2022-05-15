@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:58:22 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 18:57:48 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 15:36:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ void	env::_try_word_rest(const char word[WORD_LEN], bool answer_status[5])
 bool	env::_try_word(const char word[WORD_LEN])
 {
 	bool	answer_status[5] = { false };
-	
-	if (_guessable_words.find(word) != _guessable_words.end())
+
+	if (_guessable_words.find(word) != _guessable_words.end()
+		|| strcmp(word, this->_word_to_guess) == 0)
     {
 		this->_try_word_green(word, answer_status);
 		this->_try_word_rest(word, answer_status);
-			
+
 		this->_try++;
 
 		if (strcmp(word, this->_word_to_guess) == 0)
