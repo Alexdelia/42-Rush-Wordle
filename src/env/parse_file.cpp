@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:52:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/15 11:37:26 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:52:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 bool	env::_choose_word(void)
 {
-	size_t					count;
 	std::set<std::string>	list;
 
-	count = this->_parse_file(this->_possible_words_file, &list, 500);
-	if (!count)
+	if (this->_parse_file(this->_possible_words_file, &list, 500))
 		return (false);
 
 	std::set<std::string>::iterator	i = list.begin();
 
 	srand(time(NULL));
-	std::advance(i, rand() % count);
+	std::advance(i, rand() % list.size());
 	strcpy(this->_word_to_guess, (*i).c_str());
 
 	std::cout << "\033[3m" << "word to guess has been choosen"
@@ -39,17 +37,15 @@ bool	env::_fill_guessable_words(void)
 		&this->_guessable_words, 2000));
 }
 
-size_t	env::_parse_file(const std::string &file,
+bool	env::_parse_file(const std::string &file,
 	std::set<std::string> *list, const unsigned int point)
 {
-	size_t			count;
 	std::string		buffer;
 	std::ifstream	ifs(file.c_str(), std::ifstream::in);
 
 	std::cout << "\033[1;38;2;169;250;169m" << "parsing " 
 		<< "\033[0m" << "\033[1m" << file << " ";
 
-	count = 0;
 	while(ifs.peek()!=EOF)
 	{
 		getline(ifs, buffer);
@@ -63,17 +59,13 @@ size_t	env::_parse_file(const std::string &file,
 			return (false);
 		}
 		(*list).insert(buffer);
-		count++;
-		if (count % point == 0)
-			std::cout << '.';
 	}
 	ifs.close();
 
 	std::cout << std::endl << "found " << "\033[38;2;255;250;169m"
-		<< count << "\033[0m" << "\033[1m" << " words" << "\033[0m"
+		<< (*list).size() << "\033[0m" << "\033[1m" << " words" << "\033[0m"
 		<< std::endl << std::endl;
-	
-	return (count);
+	return (true);
 }
 
 // test words in both files
