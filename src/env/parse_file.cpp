@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:52:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/15 19:52:02 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 20:20:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	env::_choose_word(void)
 {
 	std::set<std::string>	list;
 
-	if (this->_parse_file(this->_possible_words_file, &list, 500))
+	if (this->_parse_file(this->_possible_words_file, &list))
 		return (false);
 
 	std::set<std::string>::iterator	i = list.begin();
@@ -34,11 +34,11 @@ bool	env::_choose_word(void)
 bool	env::_fill_guessable_words(void)
 {
 	return (this->_parse_file(this->_allowed_words_file,
-		&this->_guessable_words, 2000));
+		&this->_guessable_words));
 }
 
 bool	env::_parse_file(const std::string &file,
-	std::set<std::string> *list, const unsigned int point)
+	std::set<std::string> *list)
 {
 	std::string		buffer;
 	std::ifstream	ifs(file.c_str(), std::ifstream::in);
