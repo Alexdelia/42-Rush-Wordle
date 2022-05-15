@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/15 12:07:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 13:07:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	env::play(void)
 		}
 		else if (key == KEY_ENTER || key == 10)
 		{
-			this->_words_tried[this->_try][WORD_LEN] = '\0';
+			this->_words_tried[this->_try][i] = '\0';
 			
 			mvaddstr(4, 0, this->_words_tried[this->_try]);	// debug
 
