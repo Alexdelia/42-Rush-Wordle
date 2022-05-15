@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:57:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 18:54:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 12:07:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	env::play(void)
 		this->_print_words();
 		graphic::keyboard_cpp(this->_row, this->_col, this->_alphabet_status);
 
-		mvaddstr(1, 0, this->_word_to_guess);	// debug
+		mvaddstr(1, 1, this->_word_to_guess);	// debug
 
 		// move to right elem
 		move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
