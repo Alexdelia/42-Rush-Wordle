@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:03:04 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 17:20:56 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 11:38:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ void	graphic::keyboard(const int row, const int col, const int alphabet_status[2
 		addch(keyboard_row_0[i]);
 		i++;
 	}
-
-	// need to handle color
-	// mvaddstr(row - 1, (col - (strlen(KEYBOARD_ROW_2))) / 2, KEYBOARD_ROW_2);
-	// mvaddstr(row - 2, (col - (strlen(KEYBOARD_ROW_1))) / 2, KEYBOARD_ROW_1);
-	// mvaddstr(row - 3, (col - (strlen(KEYBOARD_ROW_0))) / 2, KEYBOARD_ROW_0);
-	// (void)alphabet_status;
 }
 
 static void	keyboard_row(std::string keyboard, const int alphabet_status[26])

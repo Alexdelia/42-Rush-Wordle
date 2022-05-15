@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:52:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/13 23:39:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 11:37:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ size_t	env::_parse_file(const std::string &file,
 			std::cerr << std::endl << s_error()
 				<< "\"" << file
 				<< "\" has an incompatible word: \"" << buffer << "\""
-				<< std::endl << "\033[3m" << "\t(only lowercase letters accepted)"	// size of 5
+				<< std::endl << "\033[3m" << "\t(only " << WORD_LEN << " lowercase letters accepted)"
 				<< "\033[0m" << std::endl;
 			return (false);
 		}
@@ -75,7 +75,6 @@ size_t	env::_parse_file(const std::string &file,
 	
 	return (count);
 }
-
 
 // test words in both files
 bool	env::_is_valid_word(const std::string &word)
