@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:01:21 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/14 18:49:02 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 10:57:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void env::_print_win(void) const
 
 	std::stringstream win_msg;
 	win_msg << "found \"" << this->_word_to_guess;
-	if (this->_try > 0)
-		win_msg << "\" in " << (char)(this->_try + 1 + '0') << " tries!";
+	if (this->_try > 1)
+		win_msg << "\" in " << (char)(this->_try + '0') << " tries!";
 	else
 		win_msg << "\" on first try!";
 
