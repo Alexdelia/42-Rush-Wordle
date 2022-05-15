@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:52:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/15 20:20:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/05/15 20:27:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	env::_choose_word(void)
 {
 	std::set<std::string>	list;
 
-	if (this->_parse_file(this->_possible_words_file, &list))
+	if (!this->_parse_file(this->_possible_words_file, &list))
 		return (false);
 
 	std::set<std::string>::iterator	i = list.begin();
