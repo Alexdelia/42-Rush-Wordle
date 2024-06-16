@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:58:22 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/15 15:36:57 by adelille         ###   ########.fr       */
+/*   Updated: 2024/06/16 13:45:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ bool	env::_try_word(const char word[WORD_LEN])
 		std::string	not_found_msg("\"" + std::string(word) + "\" isn't in word list");
 		mvprintw((this->_row - 1) / 2 - 7,
 			(this->_col - not_found_msg.size()) / 2,
-			not_found_msg.c_str());
+			"%s", not_found_msg.c_str());
 		attrset(A_NORMAL);
 
 		move(((this->_row - 3) - WORD_TRY) / 2 + this->_try,
